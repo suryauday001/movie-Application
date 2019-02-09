@@ -1,0 +1,442 @@
+$bgcolor: #c6d2ec;
+$headerbg: #4d5c81;
+$cardbg: #fff;
+
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
+
+.anim {
+  -webkit-transition: all 1.5s ease-in-out;
+  -moz-transition: all 1.5s ease-in-out;
+  -o-transition: all 1.5s ease-in-out;
+  transition: all 1.5s ease-in-out;
+}
+
+@mixin breakpoint($size) {
+  @media only screen and (max-width: $size + px) {
+    @content;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  float: left;
+}
+.header {
+  background-color: $headerbg;
+  padding: 25px 0px;
+  > div {
+    position: relative;
+    display: flex;
+    vertical-align: middle;
+  }
+
+  .logo {
+    width: 100px;
+    @include breakpoint(580) {
+      width: 50px;
+    }
+  }
+  .search-box {
+    width: calc(100% - 205px);
+    padding: 0 15px;
+    box-sizing: border-box;
+    position: relative;
+    background-color: $cardbg;
+    border-radius: 3px;
+    padding: 10px 25px;
+    padding-left: 35px;
+    &:after {
+      content: "\f349";
+      font-family: "Material Design Icons";
+      font-size: 24px;
+      color: #ccc;
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    input {
+      width: 100%;
+      border: 0px;
+      font-size: 14px;
+      outline: 0px;
+    }
+    @include breakpoint(580) {
+      width: calc(100% - 110px);
+    }
+  }
+  .signin {
+    width: 100px;
+    button {
+      width: 100%;
+      background-color: #f4c136;
+      padding: 10px;
+      font-size: 14px;
+      text-transform: capitalize;
+      color: $cardbg;
+      border: none;
+      border-radius: 5px;
+      margin-left: 15px;
+      cursor: pointer;
+      @include breakpoint(580) {
+        width: 60px;
+      }
+    }
+  }
+}
+body {
+  background-color: $bgcolor;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.container {
+  width: 95%;
+  max-width: 1170px;
+  margin: 0 auto;
+  display: block;
+}
+h2 {
+  color: #2c2c2c;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.p-movieList {
+  margin: 25px 0px;
+  .left-pannel {
+    box-sizing: border-box;
+    width: 25%;
+    padding: 0 15px;
+    float: left;
+    @include breakpoint(800) {
+      width: 100%;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e9e5ff;
+    }
+    ul {
+      margin: 0px;
+      padding: 0px;
+      margin-top: 15px;
+      display: inline-block;
+      li {
+        width: 100%;
+        padding: 15px 15px;
+        float: left;
+        background-color: $cardbg;
+        list-style-type: none;
+        margin-bottom: 5px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        @include breakpoint(800) {
+          width: auto;
+          display: inline-block;
+          padding: 10px 15px;
+          margin: 5px;
+        }
+      }
+    }
+    h5 {
+      margin: 0px;
+      font-weight: normal;
+    }
+    p {
+      display: none;
+    }
+  }
+  .right-pannel {
+    box-sizing: border-box;
+    padding: 0 15px;
+    width: 75%;
+    float: left;
+    @include breakpoint(800) {
+      width: 100%;
+    }
+    h2 {
+      padding-left: 15px;
+    }
+    ul {
+      margin: 0px;
+      padding: 0px;
+      text-align: left;
+      li {
+        width: calc(33.33% - 2px);
+        padding: 0 15px;
+        display: inline-block;
+        vertical-align: top;
+        list-style-type: none;
+        margin: 15px 0px;
+        box-sizing: border-box;
+        @include breakpoint(900) {
+          width: calc(50% - 2px);
+        }
+
+        @include breakpoint(800) {
+          width: calc(33.33% - 2px);
+        }
+        @include breakpoint(700) {
+          width: calc(50% - 2px);
+        }
+        @include breakpoint(450) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.loginForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 450px;
+  width: 90%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  > div {
+    background-color: $cardbg;
+    padding: 50px;
+    padding-top: 100px;
+    border-radius: 5px;
+    @include breakpoint(480) {
+      padding: 25px;
+      padding-top: 60px;
+    }
+  }
+  ul {
+    margin: 0px;
+    padding: 0px;
+    li {
+      list-style-type: none;
+      margin-bottom: 30px;
+      display: block;
+      &:last-child {
+        margin-bottom: 0px;
+      }
+      input {
+        width: 100%;
+        border: 0px;
+        border-bottom: 1px solid #ccc;
+        font-size: 14px;
+        padding: 5px 0px;
+        outline: 0px;
+        &.active {
+          border-bottom: 1px solid red;
+        }
+      }
+      button {
+        width: 100px;
+        background-color: #f4c136;
+        padding: 10px;
+        font-size: 14px;
+        text-transform: capitalize;
+        color: $cardbg;
+        border: none;
+        border-radius: 5px;
+        margin: 0 auto;
+        outline: 0px;
+        display: block;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &:after {
+    content: "\f004";
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 100px;
+    color: #fff;
+    font-family: "Material Design Icons";
+    font-size: 70px;
+    position: absolute;
+    background-color: $headerbg;
+    text-align: center;
+    @include breakpoint(480) {
+      font-size: 36px;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+    }
+  }
+}
+.moviecard {
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: $cardbg;
+  img {
+    width: 100%;
+    @extend .anim;
+  }
+  .movieinfo {
+    padding: 10px 15px;
+    float: left;
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    > div {
+      vertical-align: top;
+      float: left;
+      span {
+        color: #ee4e38;
+        vertical-align: middle;
+        display: inline-block;
+      }
+      abbr {
+        overflow: hidden;
+        vertical-align: middle;
+        display: inline-block;
+        font-size: 11px;
+      }
+      p {
+        margin: 0px;
+        color: #333;
+        font-size: 14px;
+        line-height: 18px;
+      }
+      &:first-child {
+        width: 60px;
+        margin-top: -3px;
+      }
+      &:last-child {
+        width: calc(100% - 60px);
+        position: relative;
+        padding-left: 10px;
+        box-sizing: border-box;
+      }
+    }
+  }
+  &:hover {
+    img {
+      transform: scale(1.2);
+    }
+  }
+}
+.loading-animation {
+  margin: 0 auto;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+.upperfooter {
+  background-color: #04002e;
+  padding: 20px 0px;
+  width: 100%;
+  display: inline-block;
+
+  ul {
+    margin: 0px;
+    padding: 0px;
+    li {
+      text-align: center;
+      color: #fff;
+      width: 33.33%;
+      padding: 0 15px;
+      box-sizing: border-box;
+      list-style-type: none;
+      float: left;
+      span {
+        display: block;
+        font-size: 48px;
+      }
+      p {
+        font-size: 14px;
+        text-transform: uppercase;
+        margin: 0px;
+      }
+    }
+  }
+}
+.footer {
+  background-color: #010101;
+  > div {
+    float: left;
+    width: 100%;
+  }
+}
+.lowerfooter {
+  background-color: #010010;
+  padding: 25px 0px;
+  > div {
+    display: block;
+    margin: 0 auto;
+  }
+  ul {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+    width: 100%;
+    li {
+      text-align: left;
+      color: #fff;
+      width: 25%;
+      padding: 0 15px;
+      box-sizing: border-box;
+      list-style-type: none;
+      float: left;
+      @include breakpoint(768) {
+        width: 50%;
+      }
+
+      @include breakpoint(480) {
+        width: 100%;
+      }
+      h5 {
+        color: #5e5d5f;
+        text-transform: uppercase;
+        font-size: 14px;
+        @include breakpoint(768) {
+          margin-bottom: 10px;
+        }
+      }
+      a {
+        color: #5e5d5f;
+        font-size: 12px;
+        padding-right: 5px;
+        border-right: 1px solid #5e5d5f;
+        margin-right: 5px;
+        &:last-child {
+          padding-right: 0px;
+          margin-right: 0px;
+          border-right: 0px;
+        }
+      }
+    }
+  }
+  .social-icon {
+    margin-top: 15px;
+    text-align: center;
+    a {
+      display: inline-block;
+      margin: 0 10px;
+    }
+    abbr {
+      width: 30px;
+      height: 30px;
+      background-color: #5e5d5f;
+      color: #010010;
+      border-radius: 50%;
+      font-size: 20px;
+      display: inline-block;
+      line-height: 30px;
+      text-align: center;
+    }
+  }
+}
+.note {
+  color: #000;
+  font-size: 12px;
+  text-align: center;
+}
